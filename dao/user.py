@@ -14,21 +14,23 @@ class UserDao:
 
     def create(self, user_data):
         pass
-        # ent = User(**user_data)
-        # self.session.add(ent)
-        # self.session.commit()
-        # return ent
+        ent = User(**user_data)
+        self.session.add(ent)
+        self.session.commit()
+        return ent
 
     def delete(self, uid):
         pass
-        # User = self.get_one(rid)
-        # self.session.delete(User)
-        # self.session.commit()
+        user = self.get_one(uid)
+        self.session.delete(user)
+        self.session.commit()
 
     def update(self, user_data):
         pass
-        # User = self.get_one(user_data.get("id"))
-        # User.name = user_data.get("name")
-        #
-        # self.session.add(User)
-        # self.session.commit()
+        user = self.get_one(user_data.get("id"))
+        user.username = user_data.get("username")
+        user.password = user_data.get("password")
+        user.role = user_data.get("role")
+
+        self.session.add(user)
+        self.session.commit()
