@@ -104,3 +104,15 @@ Content-Type: application/json
   "password" : "pass5",
   "role" : "girl2"
 }
+
+###
+POST http://127.0.0.1:5000/genres/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name" : "test"
+ }
+
+###
+DELETE http://127.0.0.1:5000/genres/19
