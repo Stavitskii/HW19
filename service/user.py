@@ -11,11 +11,11 @@ class UserService:
     def get_all(self):
         return self.dao.get_all()
 
-    def create(self, user_data):
-        return self.dao.create(user_data)
+    def create(self, user_d):
+        return self.dao.create(user_d)
 
-    def update(self, user_data):
-        self.dao.update(user_data)
+    def update(self, user_d):
+        self.dao.update(user_d)
         return self.dao
 
     def delete(self, uid):
