@@ -102,12 +102,18 @@ Content-Type: application/json
 {
   "username" : "Masha",
   "password" : "pass5",
-  "role" : "girl2"
+  "role" : "girl"
 }
 
 ###
 
-DELETE http://127.0.0.1:5000/users/7
+DELETE http://127.0.0.1:5000/users/4
+
+###
+
+GET http://127.0.0.1:5000/users/2
+Accept: application/json
+Content-Type: application/json
 
 ###
 POST http://127.0.0.1:5000/genres/

@@ -11,6 +11,10 @@ class UserService:
     def get_one(self, uid):
         return self.dao.get_one(uid)
 
+    def get_by_username(self, username):
+        return self.dao.get_by_username(username)
+
+
     def get_all(self):
         return self.dao.get_all()
 

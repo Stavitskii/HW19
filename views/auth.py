@@ -6,7 +6,7 @@
 `PUT /auth` — получает refresh_token из Body запроса в виде JSON, далее проверяет refresh_token и если он не истек и
  валиден — генерит пару access_token и refresh_token и отдает их в виде JSON.
 """
-from flask import request, abort
+from flask import request
 from flask_restx import Namespace, Resource
 
 auth_ns = Namespace('auth')
