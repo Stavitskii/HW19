@@ -1,11 +1,11 @@
 import base64
 import hashlib
 
-from dao.user import UserDao
+from dao.user import UserDAO
 from constants import PWD_HASH_ITERATIONS, PWD_HASH_SALT
 
 class UserService:
-    def __init__(self, dao: UserDao):
+    def __init__(self, dao: UserDAO):
         self.dao = dao
 
     def get_one(self, uid):

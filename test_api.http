@@ -106,6 +106,10 @@ Content-Type: application/json
 }
 
 ###
+
+DELETE http://127.0.0.1:5000/users/7
+
+###
 POST http://127.0.0.1:5000/genres/
 Accept: application/json
 Content-Type: application/json
