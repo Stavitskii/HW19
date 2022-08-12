@@ -107,11 +107,11 @@ Content-Type: application/json
 
 ###
 
-DELETE http://127.0.0.1:5000/users/4
+DELETE http://127.0.0.1:5000/users/6
 
 ###
 
-GET http://127.0.0.1:5000/users/2
+GET http://127.0.0.1:5000/users/1
 Accept: application/json
 Content-Type: application/json
 
