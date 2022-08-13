@@ -35,5 +35,5 @@ def admin_requered(func):
         else:
             if data["role"] == "admin":
                 return func(*args, **kwargs)
-        abort(401)
+        abort(403)
     return wrapper
