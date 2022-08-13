@@ -100,8 +100,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "username" : "Masha",
-  "password" : "pass5",
+  "username" : "Natasha",
+  "password" : "pass6",
   "role" : "girl"
 }
 
@@ -128,12 +128,12 @@ Content-Type: application/json
 DELETE http://127.0.0.1:5000/genres/19
 
 ###
-POST http://127.0.0.1:5000/users/
+POST http://127.0.0.1:5000/auth/
 Accept: application/json
 Content-Type: application/json
 
 {
-  "username" : "Nina",
-  "password" : "pass5",
-  "role" : "girl"
+  "username" : "Natasha",
+  "password" : "pass6"
 }
+###

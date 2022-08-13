@@ -19,7 +19,7 @@ class AuthService:
             return False
 
         if not is_refresh:
-            if not self.user_service.compare_password(user.password, password):
+            if not self.user_service.compare_password(password, user.password):
                 return False
 
         data = {
