@@ -5,6 +5,7 @@ import hmac
 from dao.user import UserDAO
 from constants import PWD_HASH_ITERATIONS, PWD_HASH_SALT
 
+
 class UserService:
     def __init__(self, dao: UserDAO):
         self.dao = dao
@@ -15,11 +16,11 @@ class UserService:
     def get_by_username(self, username):
         return self.dao.get_by_username(username)
 
-
     def get_all(self):
         return self.dao.get_all()
 
     def create(self, user_d):
+        user_d["password"] = self.get_password_hash(user_d["password"])
         return self.dao.create(user_d)
 
     def update(self, user_d):
@@ -39,6 +40,3 @@ class UserService:
 
     def compare_password(self, password, password_hash):
         return hmac.compare_digest(base64.b64decode(password_hash), base64.b64decode(self.get_password_hash(password)))
-
-
-
