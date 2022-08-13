@@ -3,6 +3,8 @@ import datetime
 
 from constants import JWT_ALG, JWT_SECRET
 import jwt
+
+from implemented import user_service
 from service.user import UserService
 
 
@@ -36,4 +38,20 @@ class AuthService:
         refresh_token = jwt.encode(data, JWT_SECRET, algorithm=JWT_ALG)
 
         return {"access_token": access_token, "refresh_token": refresh_token}
+
+    def approve_refresh_token(self, refresh_token):
+        data = jwt.decode(refresh_token, JWT_SECRET, algorithms=[JWT_ALG])
+        username = data['username']
+        user = self.user_service.get_by_username(username)
+
+        if not user:
+            raise Exception("Bad token")
+
+        return self.generate_tokens(username, user.password, is_refresh=True)
+
+
+
+
+
+
 

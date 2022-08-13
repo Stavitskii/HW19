@@ -9,7 +9,10 @@
 from flask import request
 from flask_restx import Namespace, Resource
 
+from implemented import auth_service
+
 auth_ns = Namespace('auth')
+
 
 @auth_ns.route("/")
 class AuthView(Resource):
@@ -19,8 +22,10 @@ class AuthView(Resource):
         password = req_json.get("password")
         if not (username or password):
             return "username and password needed", 400
-        # todo generate tokens
-        return #tokens
+        try:
+            return auth_service.generate_tokens(username, password)
+        except Exception:
+            return "", 400
 
     def put(self):
         req_json = request.json
@@ -29,6 +34,3 @@ class AuthView(Resource):
             return "refresh_token needed", 400
         # tokens = todo generate tokens
         return  # tokens
-
-
-
