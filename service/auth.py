@@ -16,11 +16,11 @@ class AuthService:
         user = self.user_service.get_by_username(username)
 
         if not user:
-            raise Exception("Not a user found")
+            return False
 
         if not is_refresh:
             if not self.user_service.compare_password(user.password, password):
-                raise Exception("Wrong password")
+                return False
 
         data = {
             "username": user.username,
@@ -45,7 +45,7 @@ class AuthService:
         user = self.user_service.get_by_username(username)
 
         if not user:
-            raise Exception("Bad token")
+            return False
 
         return self.generate_tokens(username, user.password, is_refresh=True)
 

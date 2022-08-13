@@ -22,15 +22,26 @@ class AuthView(Resource):
         password = req_json.get("password")
         if not (username or password):
             return "username and password needed", 400
-        try:
-            return auth_service.generate_tokens(username, password)
-        except Exception:
-            return "", 400
+
+        tokens = auth_service.generate_tokens(username, password)
+        if tokens:
+            return tokens
+        else:
+            return "Request error", 400
+
+
 
     def put(self):
         req_json = request.json
         ref_token = req_json.get("refresh_token")
         if not ref_token:
             return "refresh_token needed", 400
-        # tokens = todo generate tokens
-        return  # tokens
+
+        tokens = auth_service.approve_refresh_token(ref_token)
+        if tokens:
+            return tokens
+        else:
+            return "Request error", 400
+
+
+
